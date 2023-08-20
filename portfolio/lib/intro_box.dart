@@ -31,9 +31,9 @@ class _intro_boxState extends State<intro_box> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(70, 40, 30, 40),
+            padding: EdgeInsets.fromLTRB(40, 40, 30, 40),
             child: Container(
-                width: screenWidth * 0.45,
+                width: screenWidth * 0.6,
                 height: 350,
                 child: Column(
                   children: [
@@ -62,19 +62,31 @@ class _intro_boxState extends State<intro_box> {
                       style: GoogleFonts.cabin(
                           color: Colors.black,
                           fontSize: 15,
-                          fontWeight: FontWeight.w400),
+                          fontWeight: FontWeight.w500),
                     ),
-                    SizedBox(height: 20,),
-                    Row(children: [
-                      Icon(Bootstrap.github)
-                    ],)
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        Icon(EvaIcons.github),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Icon(EvaIcons.linkedin),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Icon(EvaIcons.email)
+                      ],
+                    )
                   ],
                 )),
           ),
-          SizedBox(width: screenWidth * 0.15),
+          SizedBox(width: screenWidth * 0.07),
           Container(
-            width: 200, // Set the width of the container
-            height: 200, // Set the height of the container
+            width: screenWidth * 0.15, // Set the width of the container
+            height: screenWidth * 0.15, // Set the height of the container
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10), // Set the border radius
               image: DecorationImage(

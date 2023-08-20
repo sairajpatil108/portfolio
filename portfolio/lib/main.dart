@@ -17,17 +17,18 @@ class MyApp extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return MaterialApp(
+      //
+      //BREAKPOINT VARTICALLY IS 700
+      //
       theme: ThemeData.light(useMaterial3: true),
-      // theme: ThemeData.dark(),
-      // theme: ThemeData(fontFamily: 'Tektur'),
+
       debugShowCheckedModeBanner: false,
-      // darkTheme: ThemeData.from(colorScheme: ColorScheme.dark()),
 
       home: Scaffold(
           body: SingleChildScrollView(
               child: Column(
         children: [
-          topbar(), // contains the topmost bar with options of contact , skills, projects, etc
+          topbar(),
 
           SizedBox(
             height: 20,
@@ -71,24 +72,40 @@ class MyApp extends StatelessWidget {
                       SizedBox(
                         width: screenWidth * 0.12,
                       ),
-                      Image.asset(
-                          'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-java-logo-96.png'),
+                      Container(
+                        width: screenWidth * 0.08,
+                        height: screenWidth * 0.08,
+                        child: Image.asset(
+                            'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-java-logo-96.png'),
+                      ),
                       SizedBox(
                         width: screenWidth * 0.12,
                       ),
-                      Image.asset(
-                          'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-flutter-96.png'),
+                      Container(
+                        width: screenWidth * 0.08,
+                        height: screenWidth * 0.08,
+                        child: Image.asset(
+                            'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-flutter-96.png'),
+                      ),
                       SizedBox(
                         width: screenWidth * 0.12,
                       ),
                       //  Image.asset('D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-c-96.png'),
-                      Image.asset(
-                          'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-git-96.png'),
+                      Container(
+                        width: screenWidth * 0.08,
+                        height: screenWidth * 0.08,
+                        child: Image.asset(
+                            'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-git-96.png'),
+                      ),
                       SizedBox(
                         width: screenWidth * 0.12,
                       ),
-                      Image.asset(
-                          'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-security-lock-96.png'),
+                      Container(
+                        width: screenWidth * 0.08,
+                        height: screenWidth * 0.08,
+                        child: Image.asset(
+                            'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-security-lock-96.png'),
+                      ),
                     ],
                   ),
                 ),
@@ -102,7 +119,7 @@ class MyApp extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(
-                  width: 80,
+                  width: screenWidth * 0.055,
                 ),
                 Container(
                   height: 500,
@@ -187,7 +204,7 @@ class MyApp extends StatelessWidget {
           ),
           SizedBox(
             height: 20,
-          )
+          ),
         ],
       ))),
     );
