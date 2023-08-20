@@ -34,6 +34,7 @@ dependencies:
   google_fonts: ^5.1.0
   carousel_slider: ^4.2.1
   animated_text_kit: ^4.2.2
+  icons_plus: ^4.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -67,6 +68,12 @@ flutter:
     - D:/flutter/projects/portfolio/portfolio/lib/assets/images/IMG20230715130934-01-01.jpeg
     - D:/flutter/projects/portfolio/portfolio/lib/assets/images/IMG_20230819_14502664-01.jpeg
     - D:/flutter/projects/portfolio/portfolio/lib/assets/images/IMG_20230819_09493568.jpg
+    - D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-java-logo-96.png
+    - D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-c-96.png
+    - D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-figma-96.png
+    - D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-flutter-96.png
+    - D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-git-96.png
+    - D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-security-lock-96.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
