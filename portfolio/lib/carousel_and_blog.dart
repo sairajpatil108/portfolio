@@ -50,7 +50,6 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
                       onTap: () {
                         print(current_index);
                       },
-                     
                       child: CarouselSlider(
                           items: carousel_images
                               .map((item) => Image.asset(
@@ -105,7 +104,8 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
                         animatedTexts: [
                           TyperAnimatedText(
                               'Curious about me? Here you have it:',
-                              textStyle: GoogleFonts.ptSerif(),
+                              textStyle:
+                                  GoogleFonts.ptSerif(color: Colors.black),
                               speed: Duration(milliseconds: 100)),
                           // FadeAnimatedText('Curious about me? '),
                         ],

@@ -84,20 +84,39 @@ class _intro_boxState extends State<intro_box> {
                 )),
           ),
           SizedBox(width: screenWidth * 0.07),
-          Container(
-            width: screenWidth * 0.15, // Set the width of the container
-            height: screenWidth * 0.15, // Set the height of the container
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10), // Set the border radius
-              image: DecorationImage(
-                image: NetworkImage(
-                    'https://media.licdn.com/dms/image/D5603AQFcSd7AI63WtA/profile-displayphoto-shrink_800_800/0/1670228912698?e=1697673600&v=beta&t=iKOuzR9KTQFfRw5APojJE_tUdyEQlvSxI6QcQpdvPSU'), // Replace with the URL of your network image
-                fit: BoxFit
-                    .cover, // Choose the BoxFit that best suits your layout
+          Column(
+            children: [
+              SizedBox(
+                height: 100,
               ),
-              // You can add other decoration properties like color, border, etc.
-            ),
-            // Your other content widgets, if any
+              Container(
+                width: screenWidth * 0.15, // Set the width of the container
+                height: screenWidth * 0.15, // Set the height of the container
+                decoration: BoxDecoration(
+                  borderRadius:
+                      BorderRadius.circular(10), // Set the border radius
+                  image: DecorationImage(
+                    image: NetworkImage(
+                        'https://media.licdn.com/dms/image/D5603AQFcSd7AI63WtA/profile-displayphoto-shrink_800_800/0/1670228912698?e=1697673600&v=beta&t=iKOuzR9KTQFfRw5APojJE_tUdyEQlvSxI6QcQpdvPSU'), // Replace with the URL of your network image
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Container(
+                child: Row(
+                  children: [
+                    Icon(Icons.location_pin),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text('Pune, India')
+                  ],
+                ),
+              )
+            ],
           )
         ],
       ),
