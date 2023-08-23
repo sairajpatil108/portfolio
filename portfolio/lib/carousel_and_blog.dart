@@ -87,7 +87,12 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
                   .copyWith(topLeft: Radius.circular(0)),
             ),
             child: SingleChildScrollView(
-              child: Column(
+              child:
+              
+              
+              
+              
+               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   //

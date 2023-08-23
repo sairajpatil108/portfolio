@@ -105,7 +105,6 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                 ),
                 Center(
                   child: Container(
-                    height: 500,
                     width: screenWidth * 0.9,
                     decoration: BoxDecoration(
                         color: Color.fromARGB(255, 231, 231, 231),
@@ -137,43 +136,40 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                         ),
                         Container(
                             width: screenWidth * 0.79,
-                            height: 300,
-                            child: SingleChildScrollView(
-                              child: Column(
-                                children: [
-                                  AnimatedTextKit(
-                                    animatedTexts: [
-                                      TyperAnimatedText(
-                                        'Hey!',
-                                        textStyle: GoogleFonts.ptSerif(
-                                          fontSize: 25.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                        speed:
-                                            const Duration(milliseconds: 200),
+                            child: Column(
+                              children: [
+                                AnimatedTextKit(
+                                  animatedTexts: [
+                                    TyperAnimatedText(
+                                      'Hey!',
+                                      textStyle: GoogleFonts.ptSerif(
+                                        fontSize: 25.0,
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                    ],
-                                    repeatForever: true,
-                                  ),
-                                  Text(
-                                    "I'm Sairaj",
-                                    style: GoogleFonts.ptSerif(
-                                        color: Colors.black,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  Text(
-                                    "\nA passionate B.Tech Computer Science student with a flair for innovative solutions. I thrive on tackling complex challenges and transforming them into meaningful digital experiences. From coding algorithms to crafting intuitive user interfaces, my journey in the world of technology is fueled by curiosity and a determination to create impactful solutions. Explore my projects and achievements as I continue to learn, grow, and contribute to the ever-evolving field of computer science.",
-                                    style: GoogleFonts.cabin(
-                                        color: Colors.black,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                ],
-                              ),
+                                      speed:
+                                          const Duration(milliseconds: 200),
+                                    ),
+                                  ],
+                                  repeatForever: true,
+                                ),
+                                Text(
+                                  "I'm Sairaj",
+                                  style: GoogleFonts.ptSerif(
+                                      color: Colors.black,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Text(
+                                  "\nA passionate B.Tech Computer Science student with a flair for innovative solutions. I thrive on tackling complex challenges and transforming them into meaningful digital experiences. From coding algorithms to crafting intuitive user interfaces, my journey in the world of technology is fueled by curiosity and a determination to create impactful solutions. Explore my projects and achievements as I continue to learn, grow, and contribute to the ever-evolving field of computer science.",
+                                  style: GoogleFonts.cabin(
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                              ],
                             )),
                       ],
                     ),
@@ -219,11 +215,8 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                     ),
                   ),
                 ),
-                Container(
-                  height: 500,
-                  width: screenWidth * 0.9,
+                Center(
                   child: Container(
-                    height: 450,
                     width: screenWidth * 0.9,
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(20, 60, 10, 10),
@@ -260,9 +253,89 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                     ),
                   ),
                 ),
+                Container(
+                    width: screenWidth * 0.9,
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 231, 231, 231),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 20,
+                          ),
+                          DefaultTextStyle(
+                            style: const TextStyle(
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            child: AnimatedTextKit(
+                              animatedTexts: [
+                                TyperAnimatedText(
+                                    'Curious about me? Here you have it:',
+                                    textStyle: GoogleFonts.ptSerif(
+                                        color: Colors.black, fontSize: 20),
+                                    speed: Duration(milliseconds: 100)),
+                              ],
+                              totalRepeatCount: 10,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text(
+                              "Welcome to My Digital Odyssey: Sairaj Patil's Universe Unveiled! 🚀\n",
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text(
+                              "\nHey there, fellow digital adventurers! 🌐 Buckle up, because you're about to embark on a journey through the realms of code, creativity, and a dash of my quirky world. I'm Sairaj Patil – your guide, fellow explorer, and the one with a passion for pixels and an insatiable appetite for all things tech. 🧙‍♂️"),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Divider(),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text("🎓 My Academic Ascent:\n",
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text(
+                              "\nStarting my academic escapades in the vibrant halls of Podar International School, Latur, I've come a long way to where I am today – pursuing a B.Tech in Computer Science from the prestigious Pimpri Chinchwad College of Engineering, Pune. 📚 Those early days laid the foundation for my thirst for knowledge, and my journey through the years has been a tapestry of challenges, growth, and unyielding determination."),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Divider(),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text(
+                              "✈️ Wanderlust and Whimsy – Beyond the Screen:\n",
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text(
+                              "\nAs much as I adore pixels, there's more to life than lines of code. My heart races at the mere thought of venturing into uncharted territories – suitcase in hand and curiosity in my eyes. 🌍 Traveling is my way of collecting stories and memories,  each a testament to my unquenchable wanderlust. And when I'm not exploring the world, you'll find me huddled in deep discussions with fellow adventurers, unraveling the mysteries of life, universe, spirituality and everything. 🛋️🌌"),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Divider(),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text("A Glimpse into My Creative Realm! 🌟\n",
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text(
+                              "\nBeyond the realms of coding and crafting user experiences, my world expands into a tapestry of passions that define the vibrant persona of Sairaj Patil. The melodies of music infuse rhythm into my coding endeavors, while brushes and pencils become my compass in the uncharted territory of art. From digital UIs to tangible canvases, my creative spirit finds expression, whether I'm orchestrating code symphonies, blending hues, or molding materials into intricate crafts. This fusion of art and technology isn't just a facet of my portfolio; it's the essence of my existence. Welcome to the realm where curiosity knows no boundaries and creativity paints the journey. 🎵🎨🚀"),
+                          SizedBox(
+                            height: 30,
+                          ),
+                        ],
+                      ),
+                    )),
                 SizedBox(
                   height: 20,
                 ),
+                Container(
+                  width: screenWidth * 0.9,
+                  height: 300,
+                )
               ],
             ),
           )),
