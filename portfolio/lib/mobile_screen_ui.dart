@@ -146,8 +146,7 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                                         fontSize: 25.0,
                                         fontWeight: FontWeight.bold,
                                       ),
-                                      speed:
-                                          const Duration(milliseconds: 200),
+                                      speed: const Duration(milliseconds: 200),
                                     ),
                                   ],
                                   repeatForever: true,
@@ -335,7 +334,196 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                 Container(
                   width: screenWidth * 0.9,
                   height: 300,
-                )
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 231, 231, 231),
+                      borderRadius: BorderRadius.circular(30).copyWith(
+                          topLeft: Radius.circular(0),
+                          bottomRight: Radius.circular(0))),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Chip(
+                          label: Text(
+                            'Skills',
+                            style: GoogleFonts.ptSerif(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          side: BorderSide(color: Colors.white),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.abc_outlined),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Icon(Icons.abc_outlined),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Icon(Icons.abc_outlined)
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.abc_outlined),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Icon(Icons.abc_outlined),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Icon(Icons.abc_outlined)
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.abc_outlined),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Icon(Icons.abc_outlined),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Icon(Icons.abc_outlined)
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                    width: screenWidth * 0.9,
+                    height: 300,
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 231, 231, 231),
+                        borderRadius: BorderRadius.circular(30).copyWith(
+                            topRight: Radius.circular(0),
+                            bottomLeft: Radius.circular(0))),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Chip(
+                            label: Text(
+                              'Projects',
+                              style: GoogleFonts.ptSerif(
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            side: BorderSide(color: Colors.white),
+                          ),
+                        )
+                      ],
+                    )),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                    width: screenWidth * 0.9,
+                    height: 300,
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 231, 231, 231),
+                        borderRadius: BorderRadius.circular(30).copyWith(
+                            topLeft: Radius.circular(0),
+                            bottomRight: Radius.circular(0))),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Chip(
+                            label: Text(
+                              'Experiance',
+                              style: GoogleFonts.ptSerif(
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            side: BorderSide(color: Colors.white),
+                          ),
+                        )
+                      ],
+                    )),
+                SizedBox(
+                  height: 20,
+                ),
+                Divider(),
+                Container(
+                  width: screenWidth,
+                  child: Column(
+                    children: [
+                      Chip(
+                        label: Text(
+                          'Get in touch',
+                          style: GoogleFonts.ptSerif(
+                              fontSize: 20, fontWeight: FontWeight.w600),
+                        ),
+                        side: BorderSide(color: Colors.white),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Icon(Icons.call),
+                          Text(
+                            '  +91 8767069180',
+                            style: GoogleFonts.ptSerif(
+                                fontSize: 12, fontWeight: FontWeight.w600),
+                          ),
+                          SizedBox(
+                            width: screenWidth * 0.24,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Icon(Icons.mail),
+                          ),
+                          Text(
+                            'sairajpatil108@gmail.com',
+                            style: GoogleFonts.ptSerif(
+                                fontSize: 12, fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
+                      Divider(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Icon(EvaIcons.linkedin),
+                          Text(
+                            'sairajpatil108',
+                            style: GoogleFonts.ptSerif(
+                                fontSize: 12, fontWeight: FontWeight.w600),
+                          ),
+                          SizedBox(
+                            width: screenWidth * 0.20,
+                          ),
+                          Icon(EvaIcons.github),
+                          Text(
+                            'sairajpatil108',
+                            style: GoogleFonts.ptSerif(
+                                fontSize: 12, fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
               ],
             ),
           )),
