@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class mobile_screen_ui extends StatefulWidget {
   const mobile_screen_ui({super.key});
@@ -36,6 +37,14 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
+    void _launchURL() async {
+  const url = 'https://www.linkedin.com/in/sairajpatil108/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BGx6%2B2QEbRQa5ygv7evcx1Q%3D%3D'; // Replace with your desired URL
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
@@ -433,31 +442,31 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                 SizedBox(
                   height: 20,
                 ),
-                Container(
-                    width: screenWidth * 0.9,
-                    height: 300,
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 231, 231, 231),
-                        borderRadius: BorderRadius.circular(30).copyWith(
-                            topLeft: Radius.circular(0),
-                            bottomRight: Radius.circular(0))),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Chip(
-                            label: Text(
-                              'Experiance',
-                              style: GoogleFonts.ptSerif(
-                                  color: Colors.black,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            side: BorderSide(color: Colors.white),
-                          ),
-                        )
-                      ],
-                    )),
+                // Container(
+                //     width: screenWidth * 0.9,
+                //     height: 300,
+                //     decoration: BoxDecoration(
+                //         color: Color.fromARGB(255, 231, 231, 231),
+                //         borderRadius: BorderRadius.circular(30).copyWith(
+                //             topLeft: Radius.circular(0),
+                //             bottomRight: Radius.circular(0))),
+                //     child: Column(
+                //       children: [
+                //         Padding(
+                //           padding: const EdgeInsets.all(8.0),
+                //           child: Chip(
+                //             label: Text(
+                //               'Experiance',
+                //               style: GoogleFonts.ptSerif(
+                //                   color: Colors.black,
+                //                   fontSize: 15,
+                //                   fontWeight: FontWeight.w600),
+                //             ),
+                //             side: BorderSide(color: Colors.white),
+                //           ),
+                //         )
+                //       ],
+                //     )),
                 SizedBox(
                   height: 20,
                 ),
@@ -481,19 +490,16 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                           Text(
                             '  +91 8767069180',
                             style: GoogleFonts.ptSerif(
-                                fontSize: 12, fontWeight: FontWeight.w600),
+                                fontSize: 10, fontWeight: FontWeight.w600),
                           ),
-                          SizedBox(
-                            width: screenWidth * 0.24,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Icon(Icons.mail),
-                          ),
+                          // SizedBox(
+                          //   width: screenWidth * 0.24,
+                          // ),
+                          Icon(Icons.mail),
                           Text(
                             'sairajpatil108@gmail.com',
                             style: GoogleFonts.ptSerif(
-                                fontSize: 12, fontWeight: FontWeight.w600),
+                                fontSize: 10, fontWeight: FontWeight.w600),
                           ),
                         ],
                       ),
@@ -505,16 +511,13 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                           Text(
                             'sairajpatil108',
                             style: GoogleFonts.ptSerif(
-                                fontSize: 12, fontWeight: FontWeight.w600),
-                          ),
-                          SizedBox(
-                            width: screenWidth * 0.20,
+                                fontSize: 10, fontWeight: FontWeight.w600),
                           ),
                           Icon(EvaIcons.github),
                           Text(
                             'sairajpatil108',
                             style: GoogleFonts.ptSerif(
-                                fontSize: 12, fontWeight: FontWeight.w600),
+                                fontSize: 10, fontWeight: FontWeight.w600),
                           ),
                         ],
                       )

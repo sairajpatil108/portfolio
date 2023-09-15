@@ -4,6 +4,7 @@ import 'package:icons_plus/icons_plus.dart';
 import 'package:portfolio/projects_and_certifications.dart';
 import 'package:portfolio/skills_box.dart';
 import 'package:portfolio/topbar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'carousel_and_blog.dart';
 import 'intro_box.dart';
@@ -51,29 +52,29 @@ class _desktop_screen_uiState extends State<desktop_screen_ui> {
         SizedBox(
           height: 20,
         ),
-        Container(
-          width: screenWidth * 0.8,
-          height: 300,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Color.fromARGB(255, 231, 231, 231),
-          ),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Chip(
-                  label: Text(
-                    'Experience',
-                    style: GoogleFonts.ptSerif(
-                        fontSize: 15, fontWeight: FontWeight.w600),
-                  ),
-                  side: BorderSide(color: Colors.white),
-                ),
-              )
-            ],
-          ),
-        ),
+        // Container(
+        //   width: screenWidth * 0.8,
+        //   height: 300,
+        //   decoration: BoxDecoration(
+        //     borderRadius: BorderRadius.circular(15),
+        //     color: Color.fromARGB(255, 231, 231, 231),
+        //   ),
+        //   child: Column(
+        //     children: [
+        //       Padding(
+        //         padding: const EdgeInsets.all(15.0),
+        //         child: Chip(
+        //           label: Text(
+        //             'Experience',
+        //             style: GoogleFonts.ptSerif(
+        //                 fontSize: 15, fontWeight: FontWeight.w600),
+        //           ),
+        //           side: BorderSide(color: Colors.white),
+        //         ),
+        //       )
+        //     ],
+        //   ),
+        // ),
         SizedBox(
           height: 20,
         ),
@@ -150,5 +151,12 @@ class _desktop_screen_uiState extends State<desktop_screen_ui> {
         )
       ],
     )));
+  }
+}
+
+Future<void> goToWebPage(String urlString) async {
+  final Uri _url = Uri.parse(urlString);
+  if (!await launchUrl(_url)) {
+    throw 'Could not launch $_url';
   }
 }

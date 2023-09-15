@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/desktop_screen_ui.dart';
 import 'package:portfolio/ui_decider.dart';
 
 void main() {
