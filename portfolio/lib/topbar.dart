@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class topbar extends StatefulWidget {
   const topbar({super.key});
@@ -58,7 +59,10 @@ class _topbarState extends State<topbar> {
                     style: GoogleFonts.merriweather(color: Colors.white)),
                 backgroundColor: Colors.black,
               ),
-              onTap: () {},
+              onTap: () async {
+                await launch(
+                    'https://drive.google.com/file/d/1KoM3EW_aGwckUk0qf5qi_9c3co1j8c0f/view?usp=drive_link');
+              },
             ),
             SizedBox(
               width: screenHeight * 0.04,
@@ -78,7 +82,7 @@ class mychip extends StatefulWidget {
   State<mychip> createState() => _mychipState();
 }
 
- class _mychipState extends State<mychip> {
+class _mychipState extends State<mychip> {
   @override
   Widget build(BuildContext context) {
     return Chip(

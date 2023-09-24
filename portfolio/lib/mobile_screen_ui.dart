@@ -31,38 +31,41 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
         "imagepath":
             "D:/flutter/projects/portfolio/portfolio/lib/assets/images/IMG_20230819_09493568.jpg"
       },
+      {
+        "id": 4,
+        "imagepath":
+            "D:/flutter/projects/portfolio/portfolio/lib/assets/images/20230920_145435-01.jpeg"
+      },
     ];
     final CarouselController carouselController = CarouselController();
     int current_index = 0;
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    void _launchURL() async {
-  const url = 'https://www.linkedin.com/in/sairajpatil108/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BGx6%2B2QEbRQa5ygv7evcx1Q%3D%3D'; // Replace with your desired URL
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
             actions: [
               Padding(
                 padding: EdgeInsets.fromLTRB(5, 5, 20, 5),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.black,
+                child: InkWell(
+                  onTap: () async {
+                    await launch(
+                        'https://drive.google.com/file/d/1KoM3EW_aGwckUk0qf5qi_9c3co1j8c0f/view?usp=drive_link');
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.black,
+                    ),
+                    height: 40,
+                    width: 120,
+                    child: Center(
+                        child: Text(
+                      'Download CV',
+                      style: GoogleFonts.ptSerif(color: Colors.white),
+                    )),
                   ),
-                  height: 40,
-                  width: 120,
-                  child: Center(
-                      child: Text(
-                    'Download CV',
-                    style: GoogleFonts.ptSerif(color: Colors.white),
-                  )),
                 ),
               )
             ],
@@ -74,28 +77,37 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                   height: 30,
                 ),
                 InkWell(
-                  child: Text('About'), // mychip(title: 'About'),
+                  child: Text(
+                    'About',
+                    style: GoogleFonts.ptSerif(fontSize: 20),
+                  ), // mychip(title: 'About'),
                   onTap: () {},
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 InkWell(
-                  child: Text('Projects'), // mychip(title: 'Projects'),
+                  child: Text('Projects',
+                      style: GoogleFonts.ptSerif(
+                          fontSize: 20)), // mychip(title: 'Projects'),
                   onTap: () {},
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 InkWell(
-                  child: Text('Skills'), // mychip(title: 'Skills'),
+                  child: Text('Skills',
+                      style: GoogleFonts.ptSerif(
+                          fontSize: 20)), // mychip(title: 'Skills'),
                   onTap: () {},
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 InkWell(
-                  child: Text('Contact'), // mychip(title: 'Contact'),
+                  child: Text('Contact',
+                      style: GoogleFonts.ptSerif(
+                          fontSize: 20)), // mychip(title: 'Contact'),
                   onTap: () {},
                 ),
               ],
@@ -190,15 +202,44 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                   padding: const EdgeInsets.all(8.0).copyWith(left: 20),
                   child: Row(
                     children: [
-                      Icon(EvaIcons.github),
+                      Container(
+                        height: 50,
+                        width: 50,
+                        child: InkWell(
+                          child: Icon(EvaIcons.github),
+                          onTap: () async {
+                            await launch('https://github.com/sairajpatil108');
+                          },
+                        ),
+                      ),
                       SizedBox(
                         width: 15,
                       ),
-                      Icon(EvaIcons.linkedin),
+                      Container(
+                        height: 50,
+                        width: 50,
+                        child: InkWell(
+                          child: Icon(EvaIcons.linkedin),
+                          onTap: () async {
+                            await launch(
+                                'https://www.linkedin.com/in/sairajpatil108');
+                          },
+                        ),
+                      ),
                       SizedBox(
                         width: 15,
                       ),
-                      Icon(EvaIcons.email)
+                      Container(
+                        height: 50,
+                        width: 50,
+                        child: InkWell(
+                          child: Icon(EvaIcons.email),
+                          onTap: () async {
+                            await launch(
+                                'mailto:sairajpatil108@gmail.com?subject=News&body=Hey!');
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -262,79 +303,85 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                   ),
                 ),
                 Container(
+                    height: 400,
                     width: screenWidth * 0.9,
                     decoration: BoxDecoration(
                         color: Color.fromARGB(255, 231, 231, 231),
                         borderRadius: BorderRadius.circular(20)),
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 20,
-                          ),
-                          DefaultTextStyle(
-                            style: const TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 20,
                             ),
-                            child: AnimatedTextKit(
-                              animatedTexts: [
-                                TyperAnimatedText(
-                                    'Curious about me? Here you have it:',
-                                    textStyle: GoogleFonts.ptSerif(
-                                        color: Colors.black, fontSize: 20),
-                                    speed: Duration(milliseconds: 100)),
-                              ],
-                              totalRepeatCount: 10,
+                            DefaultTextStyle(
+                              style: const TextStyle(
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              child: Container(
+                                height: 60,
+                                child: AnimatedTextKit(
+                                  animatedTexts: [
+                                    TyperAnimatedText(
+                                        'Curious about me? Here you have it:',
+                                        textStyle: GoogleFonts.ptSerif(
+                                            color: Colors.black, fontSize: 20),
+                                        speed: Duration(milliseconds: 100)),
+                                  ],
+                                  totalRepeatCount: 10,
+                                ),
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Text(
-                              "Welcome to My Digital Odyssey: Sairaj Patil's Universe Unveiled! 🚀\n",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text(
-                              "\nHey there, fellow digital adventurers! 🌐 Buckle up, because you're about to embark on a journey through the realms of code, creativity, and a dash of my quirky world. I'm Sairaj Patil – your guide, fellow explorer, and the one with a passion for pixels and an insatiable appetite for all things tech. 🧙‍♂️"),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Divider(),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Text("🎓 My Academic Ascent:\n",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text(
-                              "\nStarting my academic escapades in the vibrant halls of Podar International School, Latur, I've come a long way to where I am today – pursuing a B.Tech in Computer Science from the prestigious Pimpri Chinchwad College of Engineering, Pune. 📚 Those early days laid the foundation for my thirst for knowledge, and my journey through the years has been a tapestry of challenges, growth, and unyielding determination."),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Divider(),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Text(
-                              "✈️ Wanderlust and Whimsy – Beyond the Screen:\n",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text(
-                              "\nAs much as I adore pixels, there's more to life than lines of code. My heart races at the mere thought of venturing into uncharted territories – suitcase in hand and curiosity in my eyes. 🌍 Traveling is my way of collecting stories and memories,  each a testament to my unquenchable wanderlust. And when I'm not exploring the world, you'll find me huddled in deep discussions with fellow adventurers, unraveling the mysteries of life, universe, spirituality and everything. 🛋️🌌"),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Divider(),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Text("A Glimpse into My Creative Realm! 🌟\n",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text(
-                              "\nBeyond the realms of coding and crafting user experiences, my world expands into a tapestry of passions that define the vibrant persona of Sairaj Patil. The melodies of music infuse rhythm into my coding endeavors, while brushes and pencils become my compass in the uncharted territory of art. From digital UIs to tangible canvases, my creative spirit finds expression, whether I'm orchestrating code symphonies, blending hues, or molding materials into intricate crafts. This fusion of art and technology isn't just a facet of my portfolio; it's the essence of my existence. Welcome to the realm where curiosity knows no boundaries and creativity paints the journey. 🎵🎨🚀"),
-                          SizedBox(
-                            height: 30,
-                          ),
-                        ],
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Text(
+                                "Welcome to My Digital Odyssey: Sairaj Patil's Universe Unveiled! 🚀\n",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                                "\nHey there, fellow digital adventurers! 🌐 Buckle up, because you're about to embark on a journey through the realms of code, creativity, and a dash of my quirky world. I'm Sairaj Patil – your guide, fellow explorer, and the one with a passion for pixels and an insatiable appetite for all things tech. 🧙‍♂️"),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Divider(),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Text("🎓 My Academic Ascent:\n",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                                "\nStarting my academic escapades in the vibrant halls of Podar International School, Latur, I've come a long way to where I am today – pursuing a B.Tech in Computer Science from the prestigious Pimpri Chinchwad College of Engineering, Pune. 📚 Those early days laid the foundation for my thirst for knowledge, and my journey through the years has been a tapestry of challenges, growth, and unyielding determination."),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Divider(),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Text(
+                                "✈️ Wanderlust and Whimsy – Beyond the Screen:\n",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                                "\nAs much as I adore pixels, there's more to life than lines of code. My heart races at the mere thought of venturing into uncharted territories – suitcase in hand and curiosity in my eyes. 🌍 Traveling is my way of collecting stories and memories,  each a testament to my unquenchable wanderlust. And when I'm not exploring the world, you'll find me huddled in deep discussions with fellow adventurers, unraveling the mysteries of life, universe, spirituality and everything. 🛋️🌌"),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Divider(),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Text("A Glimpse into My Creative Realm! 🌟\n",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                                "\nBeyond the realms of coding and crafting user experiences, my world expands into a tapestry of passions that define the vibrant persona of Sairaj Patil. The melodies of music infuse rhythm into my coding endeavors, while brushes and pencils become my compass in the uncharted territory of art. From digital UIs to tangible canvases, my creative spirit finds expression, whether I'm orchestrating code symphonies, blending hues, or molding materials into intricate crafts. This fusion of art and technology isn't just a facet of my portfolio; it's the essence of my existence. Welcome to the realm where curiosity knows no boundaries and creativity paints the journey. 🎵🎨🚀"),
+                            SizedBox(
+                              height: 30,
+                            ),
+                          ],
+                        ),
                       ),
                     )),
                 SizedBox(
@@ -342,7 +389,6 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                 ),
                 Container(
                   width: screenWidth * 0.9,
-                  height: 300,
                   decoration: BoxDecoration(
                       color: Color.fromARGB(255, 231, 231, 231),
                       borderRadius: BorderRadius.circular(30).copyWith(
@@ -350,11 +396,14 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                           bottomRight: Radius.circular(0))),
                   child: Column(
                     children: [
+                      SizedBox(
+                        height: 5,
+                      ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Chip(
                           label: Text(
-                            'Skills',
+                            'Skills and Tech I have worked on',
                             style: GoogleFonts.ptSerif(
                                 color: Colors.black,
                                 fontSize: 15,
@@ -364,50 +413,47 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                         ),
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Icon(Icons.abc_outlined),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Icon(Icons.abc_outlined),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Icon(Icons.abc_outlined)
+                          Image.asset(
+                              'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-java-logo-96.png'),
+                          Image.asset(
+                              'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-c-96.png'),
+                          Image.asset(
+                              'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-c-programming-96.png'),
                         ],
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Icon(Icons.abc_outlined),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Icon(Icons.abc_outlined),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Icon(Icons.abc_outlined)
+                          Image.asset(
+                              'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-figma-96.png'),
+                          Image.asset(
+                              'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-flutter-96.png'),
+                          Image.asset(
+                              'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-git-96.png'),
                         ],
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Icon(Icons.abc_outlined),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Icon(Icons.abc_outlined),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Icon(Icons.abc_outlined)
+                          Image.asset(
+                              'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-python-96.png'),
+                          Image.asset(
+                              'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-kotlin-96.png'),
+                          Image.asset(
+                              'D:/flutter/projects/portfolio/portfolio/lib/assets/images/icons8-firebase-96.png'),
                         ],
                       ),
+                      SizedBox(
+                        height: 10,
+                      )
                     ],
                   ),
                 ),
@@ -470,7 +516,10 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                 SizedBox(
                   height: 20,
                 ),
-                Divider(),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: Divider(),
+                ),
                 Container(
                   width: screenWidth,
                   child: Column(
@@ -486,38 +535,54 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Icon(Icons.call),
-                          Text(
-                            '  +91 8767069180',
-                            style: GoogleFonts.ptSerif(
-                                fontSize: 10, fontWeight: FontWeight.w600),
+                          Row(
+                            children: [
+                              Icon(Icons.call),
+                              Text(
+                                '  +91 8767069180',
+                                style: GoogleFonts.ptSerif(
+                                    fontSize: 10, fontWeight: FontWeight.w600),
+                              ),
+                            ],
                           ),
-                          // SizedBox(
-                          //   width: screenWidth * 0.24,
-                          // ),
-                          Icon(Icons.mail),
-                          Text(
-                            'sairajpatil108@gmail.com',
-                            style: GoogleFonts.ptSerif(
-                                fontSize: 10, fontWeight: FontWeight.w600),
+                          Row(
+                            children: [
+                              Icon(Icons.mail),
+                              Text(
+                                '  sairajpatil108@gmail.com',
+                                style: GoogleFonts.ptSerif(
+                                    fontSize: 10, fontWeight: FontWeight.w600),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                      Divider(),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                        child: Divider(),
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Icon(EvaIcons.linkedin),
-                          Text(
-                            'sairajpatil108',
-                            style: GoogleFonts.ptSerif(
-                                fontSize: 10, fontWeight: FontWeight.w600),
+                          Row(
+                            children: [
+                              Icon(EvaIcons.linkedin),
+                              Text(
+                                '  sairajpatil108',
+                                style: GoogleFonts.ptSerif(
+                                    fontSize: 10, fontWeight: FontWeight.w600),
+                              ),
+                            ],
                           ),
-                          Icon(EvaIcons.github),
-                          Text(
-                            'sairajpatil108',
-                            style: GoogleFonts.ptSerif(
-                                fontSize: 10, fontWeight: FontWeight.w600),
+                          Row(
+                            children: [
+                              Icon(EvaIcons.github),
+                              Text(
+                                '  sairajpatil108',
+                                style: GoogleFonts.ptSerif(
+                                    fontSize: 10, fontWeight: FontWeight.w600),
+                              ),
+                            ],
                           ),
                         ],
                       )

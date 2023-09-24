@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/ui_decider.dart';
 
 void main() {
+  
   runApp(MyApp());
 }
 
@@ -10,8 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
 
     return MaterialApp(
       //

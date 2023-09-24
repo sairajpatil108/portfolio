@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class intro_box extends StatefulWidget {
   const intro_box({super.key});
@@ -69,15 +70,44 @@ class _intro_boxState extends State<intro_box> {
                     ),
                     Row(
                       children: [
-                        Icon(EvaIcons.github),
+                        Container(
+                          height: 50,
+                          width: 50,
+                          child: InkWell(
+                            child: Icon(EvaIcons.github),
+                            onTap: () async {
+                              await launch('https://github.com/sairajpatil108');
+                            },
+                          ),
+                        ),
                         SizedBox(
                           width: 15,
                         ),
-                        Icon(EvaIcons.linkedin),
+                        Container(
+                          height: 50,
+                          width: 50,
+                          child: InkWell(
+                            child: Icon(EvaIcons.linkedin),
+                            onTap: () async {
+                              await launch(
+                                  'https://www.linkedin.com/in/sairajpatil108');
+                            },
+                          ),
+                        ),
                         SizedBox(
                           width: 15,
                         ),
-                        Icon(EvaIcons.email)
+                        Container(
+                          height: 50,
+                          width: 50,
+                          child: InkWell(
+                            child: Icon(EvaIcons.email),
+                            onTap: () async {
+                              await launch(
+                                  'mailto:sairajpatil108@gmail.com?subject=News&body=Hey!');
+                            },
+                          ),
+                        ),
                       ],
                     )
                   ],

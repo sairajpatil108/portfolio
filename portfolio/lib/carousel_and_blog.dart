@@ -31,6 +31,11 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
         "imagepath":
             "D:/flutter/projects/portfolio/portfolio/lib/assets/images/IMG_20230819_09493568.jpg"
       },
+      {
+        "id": 4,
+        "imagepath":
+            "D:/flutter/projects/portfolio/portfolio/lib/assets/images/20230920_145435-01.jpeg"
+      },
     ];
     final CarouselController carouselController = CarouselController();
     int current_index = 0;
@@ -79,20 +84,15 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
             width: screenWidth * 0.03,
           ),
           Container(
-            height: 450,
-            width: screenWidth * 0.54,
+            height: 380,
+            width: screenWidth * 0.548,
             decoration: BoxDecoration(
               color: Color.fromARGB(255, 231, 231, 231),
               borderRadius: BorderRadius.circular(25)
                   .copyWith(topLeft: Radius.circular(0)),
             ),
             child: SingleChildScrollView(
-              child:
-              
-              
-              
-              
-               Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   //
