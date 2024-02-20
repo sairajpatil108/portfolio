@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types, deprecated_member_use
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,25 +17,24 @@ class _intro_boxState extends State<intro_box> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       height: 400,
       width: screenWidth * 0.95,
-      decoration: BoxDecoration(
-          color: Color.fromARGB(255, 231, 231, 231),
+      decoration: const BoxDecoration(
+          //  color: Color.fromARGB(255, 231, 231, 231),
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(0),
-            bottomLeft: Radius.circular(0),
-            bottomRight: Radius.circular(30),
-          )),
+        topLeft: Radius.circular(30),
+        topRight: Radius.circular(0),
+        bottomLeft: Radius.circular(0),
+        bottomRight: Radius.circular(30),
+      )),
       child: Row(
         // crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(40, 40, 30, 40),
-            child: Container(
+            padding: const EdgeInsets.fromLTRB(40, 40, 30, 40),
+            child: SizedBox(
                 width: screenWidth * 0.6,
                 height: 350,
                 child: Column(
@@ -54,54 +55,54 @@ class _intro_boxState extends State<intro_box> {
                     Text(
                       "I'm Sairaj",
                       style: GoogleFonts.ptSerif(
-                          color: Colors.black,
+                          //  color: Colors.black,
                           fontSize: 28,
                           fontWeight: FontWeight.w600),
                     ),
                     Text(
                       "\nA passionate B.Tech Computer Science student with a flair for innovative solutions. I thrive on tackling complex challenges and transforming them into meaningful digital experiences. From coding algorithms to crafting intuitive user interfaces, my journey in the world of technology is fueled by curiosity and a determination to create impactful solutions. Explore my projects and achievements as I continue to learn, grow, and contribute to the ever-evolving field of computer science.",
                       style: GoogleFonts.cabin(
-                          color: Colors.black,
+                          //  color: Colors.black,
                           fontSize: 15,
                           fontWeight: FontWeight.w500),
                     ),
-                    SizedBox(
-                      height: 20,
+                    const SizedBox(
+                      height: 10,
                     ),
                     Row(
                       children: [
-                        Container(
-                          height: 50,
+                        SizedBox(
+                          height: 30,
                           width: 50,
                           child: InkWell(
-                            child: Icon(EvaIcons.github),
+                            child: const Icon(EvaIcons.github),
                             onTap: () async {
                               await launch('https://github.com/sairajpatil108');
                             },
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15,
                         ),
-                        Container(
-                          height: 50,
+                        SizedBox(
+                          height: 30,
                           width: 50,
                           child: InkWell(
-                            child: Icon(EvaIcons.linkedin),
+                            child: const Icon(EvaIcons.linkedin),
                             onTap: () async {
                               await launch(
                                   'https://www.linkedin.com/in/sairajpatil108');
                             },
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15,
                         ),
-                        Container(
-                          height: 50,
+                        SizedBox(
+                          height: 30,
                           width: 50,
                           child: InkWell(
-                            child: Icon(EvaIcons.email),
+                            child: const Icon(EvaIcons.email),
                             onTap: () async {
                               await launch(
                                   'mailto:sairajpatil108@gmail.com?subject=News&body=Hey!');
@@ -116,35 +117,32 @@ class _intro_boxState extends State<intro_box> {
           SizedBox(width: screenWidth * 0.07),
           Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
               Container(
                 width: screenWidth * 0.15, // Set the width of the container
                 height: screenWidth * 0.15, // Set the height of the container
                 decoration: BoxDecoration(
-                  borderRadius:
-                      BorderRadius.circular(10), // Set the border radius
-                  image: DecorationImage(
-                    image: NetworkImage(
-                        'https://media.licdn.com/dms/image/D5603AQFcSd7AI63WtA/profile-displayphoto-shrink_800_800/0/1670228912698?e=1697673600&v=beta&t=iKOuzR9KTQFfRw5APojJE_tUdyEQlvSxI6QcQpdvPSU'), // Replace with the URL of your network image
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                    borderRadius:
+                        BorderRadius.circular(10), // Set the border radius
+                    image: const DecorationImage(
+                        image: AssetImage(
+                            "D:/flutter/projects/portfolio/portfolio/lib/assets/images/profile.jpeg"))
+                    // You can add other decoration properties like color, border, etc.
+                    ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              Container(
-                child: Row(
-                  children: [
-                    Icon(Icons.location_pin),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text('Pune, India')
-                  ],
-                ),
+              const Row(
+                children: [
+                  Icon(Icons.location_pin),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text('Pune, India')
+                ],
               )
             ],
           )

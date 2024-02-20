@@ -1,8 +1,11 @@
+// ignore_for_file: non_constant_identifier_names, duplicate_ignore
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: camel_case_types
 class carousel_and_blog_box extends StatefulWidget {
   const carousel_and_blog_box({super.key});
 
@@ -10,17 +13,13 @@ class carousel_and_blog_box extends StatefulWidget {
   State<carousel_and_blog_box> createState() => _carousel_and_blog_boxState();
 }
 
+// ignore: camel_case_types
 class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    // ignore: non_constant_identifier_names
     List carousel_images = [
-      {
-        "id": 1,
-        "imagepath":
-            "D:/flutter/projects/portfolio/portfolio/lib/assets/images/IMG20230715130934-01-01.jpeg"
-      },
       {
         "id": 2,
         "imagepath":
@@ -37,45 +36,33 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
             "D:/flutter/projects/portfolio/portfolio/lib/assets/images/20230920_145435-01.jpeg"
       },
     ];
-    final CarouselController carouselController = CarouselController();
-    int current_index = 0;
-    return Container(
+    return SizedBox(
       height: 500,
       width: screenWidth * 0.9,
       child: Row(
         children: [
-          Container(
+          SizedBox(
             height: 450,
             width: screenWidth * 0.3,
             child: Padding(
               padding: const EdgeInsets.fromLTRB(20, 60, 10, 10),
               child: Stack(
                 children: [
-                  InkWell(
-                      onTap: () {
-                        print(current_index);
-                      },
-                      child: CarouselSlider(
-                          items: carousel_images
-                              .map((item) => Image.asset(
-                                    item['imagepath'],
-                                    fit: BoxFit.cover,
-                                    width: double.infinity,
-                                  ))
-                              .toList(),
-                          options: CarouselOptions(
-                            scrollPhysics: const BouncingScrollPhysics(),
-                            autoPlay: true,
-                            aspectRatio: 1.3,
-                            viewportFraction: 1,
-                            onPageChanged: (index, reason) {
-                              setState(index, reason) {
-                                current_index = index;
-                              }
-
-                              ;
-                            },
-                          )))
+                  CarouselSlider(
+                      items: carousel_images
+                          .map((item) => Image.asset(
+                                item['imagepath'],
+                                fit: BoxFit.contain,
+                                width: double.infinity,
+                              ))
+                          .toList(),
+                      options: CarouselOptions(
+                        scrollPhysics: const BouncingScrollPhysics(),
+                        autoPlay: true,
+                        aspectRatio: 1.3,
+                        viewportFraction: 1,
+                        onPageChanged: (index, reason) {},
+                      ))
                 ],
               ),
             ),
@@ -87,9 +74,9 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
             height: 380,
             width: screenWidth * 0.548,
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 231, 231, 231),
+              // color: ColorScheme.light().primaryContainer,
               borderRadius: BorderRadius.circular(25)
-                  .copyWith(topLeft: Radius.circular(0)),
+                  .copyWith(topLeft: const Radius.circular(0)),
             ),
             child: SingleChildScrollView(
               child: Column(
@@ -99,7 +86,7 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
                   //
                   //
                   Padding(
-                    padding: EdgeInsets.fromLTRB(20, 10, 10, 15),
+                    padding: const EdgeInsets.fromLTRB(20, 10, 10, 15),
                     child: DefaultTextStyle(
                       style: const TextStyle(
                         fontSize: 20.0,
@@ -109,9 +96,8 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
                         animatedTexts: [
                           TyperAnimatedText(
                               'Curious about me? Here you have it:',
-                              textStyle:
-                                  GoogleFonts.ptSerif(color: Colors.black),
-                              speed: Duration(milliseconds: 100)),
+                              textStyle: GoogleFonts.ptSerif(),
+                              speed: const Duration(milliseconds: 100)),
                           // FadeAnimatedText('Curious about me? '),
                         ],
                         totalRepeatCount: 5,
@@ -122,7 +108,7 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
                   //
                   //
                   Padding(
-                      padding: EdgeInsets.fromLTRB(20, 10, 10, 10),
+                      padding: const EdgeInsets.fromLTRB(20, 10, 10, 10),
                       child: RichText(
                         text: TextSpan(
                           style: DefaultTextStyle.of(context).style,
@@ -140,7 +126,7 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
                   //
                   //
                   Padding(
-                      padding: EdgeInsets.fromLTRB(20, 10, 10, 10),
+                      padding: const EdgeInsets.fromLTRB(20, 10, 10, 10),
                       child: RichText(
                         text: TextSpan(
                           style: DefaultTextStyle.of(context).style,
@@ -157,7 +143,7 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
                         //
                       )),
                   Padding(
-                      padding: EdgeInsets.fromLTRB(20, 10, 10, 10),
+                      padding: const EdgeInsets.fromLTRB(20, 10, 10, 10),
                       child: RichText(
                         text: TextSpan(
                           style: DefaultTextStyle.of(context).style,
@@ -173,7 +159,7 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
                         ),
                       )),
                   Padding(
-                      padding: EdgeInsets.fromLTRB(20, 10, 10, 10),
+                      padding: const EdgeInsets.fromLTRB(20, 10, 10, 10),
                       child: RichText(
                         text: TextSpan(
                           style: DefaultTextStyle.of(context).style,

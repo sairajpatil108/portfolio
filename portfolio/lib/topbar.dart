@@ -1,5 +1,9 @@
+// ignore_for_file: camel_case_types, deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/main.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class topbar extends StatefulWidget {
@@ -12,56 +16,76 @@ class topbar extends StatefulWidget {
 class _topbarState extends State<topbar> {
   @override
   Widget build(BuildContext context) {
+    var themeNotifier = Provider.of<ThemeNotifier>(context);
+
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Container(
       width: screenWidth,
       height: 50,
-      decoration: BoxDecoration(),
+      decoration: const BoxDecoration(),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            InkWell(
-              child: mychip(title: 'Contact'),
-              onTap: () {},
+            ElevatedButton(
+              child: Text('Contact'),
+              onPressed: () {},
             ),
-            SizedBox(
-              width: screenWidth * 0.02,
+            Expanded(child: SizedBox()),
+            ElevatedButton(
+              child: Text('Skills'),
+              onPressed: () {},
             ),
-            InkWell(
-              child: mychip(title: 'Skills'),
-              onTap: () {},
+            Expanded(child: SizedBox()),
+            ElevatedButton(
+              child: Text('Projrcts'),
+              onPressed: () {},
             ),
-            SizedBox(
-              width: screenWidth * 0.02,
+            Expanded(child: SizedBox()),
+            ElevatedButton(
+              child: Text('About'),
+              onPressed: () {},
             ),
-            InkWell(
-              child: mychip(title: 'Projects'),
-              onTap: () {},
-            ),
-            SizedBox(
-              width: screenWidth * 0.02,
-            ),
-            InkWell(
-              child: mychip(title: 'About'),
-              onTap: () {},
-            ),
-            SizedBox(
-              width: screenWidth * 0.2,
-            ),
-            InkWell(
-              child: Chip(
-                side: BorderSide(color: Colors.white),
-                label: Text('Download CV',
-                    style: GoogleFonts.merriweather(color: Colors.white)),
-                backgroundColor: Colors.black,
+            Expanded(child: SizedBox()),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent.withOpacity(0.3),
               ),
-              onTap: () async {
+              onPressed: themeNotifier.toggleTheme,
+              child: Row(
+                children: [
+                  const Text("toggle theme"),
+                  Padding(
+                    padding: const EdgeInsets.all(0).copyWith(left: 7),
+                    child: Icon(
+                      themeNotifier.isDarkMode
+                          ? Icons.dark_mode_rounded
+                          : Icons.light_mode_rounded,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              width: screenWidth * 0.03,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(150, 200), // Change the size here
+                //padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                // You can add more styling properties here
+              ),
+              child: Text('Download CV',
+                  style: GoogleFonts.merriweather(
+                      //color: Colors.white
+                      )),
+              // backgroundColor: Colors.black,
+              onPressed: () async {
                 await launch(
-                    'https://drive.google.com/file/d/1KoM3EW_aGwckUk0qf5qi_9c3co1j8c0f/view?usp=drive_link');
+                    'https://drive.google.com/file/d/1tStmA69M8-AWkvOVZ7XLI1akQo6f7Caw/view?usp=drive_link');
               },
             ),
             SizedBox(
@@ -74,25 +98,25 @@ class _topbarState extends State<topbar> {
   }
 }
 
-class mychip extends StatefulWidget {
+// ignore: must_be_immutable
+class mychip extends StatelessWidget {
   mychip({super.key, required this.title});
-  var title;
+  String title;
 
-  @override
-  State<mychip> createState() => _mychipState();
-}
-
-class _mychipState extends State<mychip> {
   @override
   Widget build(BuildContext context) {
     return Chip(
-      side: BorderSide(color: Colors.white),
+      side: const BorderSide(
+          // color: Colors.white
+          ),
       label: Text(
-        widget.title,
-        style: TextStyle(
-            color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16),
+        title,
+        style: const TextStyle(
+            // color: Colors.black,
+            fontWeight: FontWeight.w600,
+            fontSize: 16),
       ),
-      backgroundColor: Color.fromARGB(255, 231, 231, 231),
+      //   backgroundColor: const Color.fromARGB(255, 231, 231, 231),
     );
   }
 }

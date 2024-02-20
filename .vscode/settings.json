@@ -1,3 +1,4 @@
 {
-    "editor.acceptSuggestionOnEnter": "on"
+    "editor.acceptSuggestionOnEnter": "on",
+    "cmake.sourceDirectory": "D:/flutter/projects/portfolio/portfolio/windows"
 }
