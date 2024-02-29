@@ -1,20 +1,19 @@
 // ignore_for_file: non_constant_identifier_names, duplicate_ignore
 
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // ignore: camel_case_types
-class carousel_and_blog_box extends StatefulWidget {
-  const carousel_and_blog_box({super.key});
+class blog_box extends StatefulWidget {
+  const blog_box({super.key});
 
   @override
-  State<carousel_and_blog_box> createState() => _carousel_and_blog_boxState();
+  State<blog_box> createState() => blog_boxState();
 }
 
 // ignore: camel_case_types
-class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
+class blog_boxState extends State<blog_box> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -42,41 +41,21 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
       child: Row(
         children: [
           SizedBox(
-            height: 450,
-            width: screenWidth * 0.3,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 60, 10, 10),
-              child: Stack(
-                children: [
-                  CarouselSlider(
-                      items: carousel_images
-                          .map((item) => Image.asset(
-                                item['imagepath'],
-                                fit: BoxFit.contain,
-                                width: double.infinity,
-                              ))
-                          .toList(),
-                      options: CarouselOptions(
-                        scrollPhysics: const BouncingScrollPhysics(),
-                        autoPlay: true,
-                        aspectRatio: 1.3,
-                        viewportFraction: 1,
-                        onPageChanged: (index, reason) {},
-                      ))
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
             width: screenWidth * 0.03,
           ),
           Container(
-            height: 380,
-            width: screenWidth * 0.548,
+            // height: 380,
+            width: screenWidth * 0.8,
             decoration: BoxDecoration(
+              border: const Border(
+                  bottom: BorderSide(width: 1, color: Colors.black),
+                  top: BorderSide(width: 1, color: Colors.black),
+                  left: BorderSide(width: 1, color: Colors.black),
+                  right: BorderSide(width: 1, color: Colors.black)),
               // color: ColorScheme.light().primaryContainer,
-              borderRadius: BorderRadius.circular(25)
-                  .copyWith(topLeft: const Radius.circular(0)),
+              borderRadius: BorderRadius.circular(25).copyWith(
+                  topLeft: const Radius.circular(0),
+                  bottomRight: const Radius.circular(0)),
             ),
             child: SingleChildScrollView(
               child: Column(
@@ -92,15 +71,24 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                       ),
-                      child: AnimatedTextKit(
-                        animatedTexts: [
-                          TyperAnimatedText(
-                              'Curious about me? Here you have it:',
-                              textStyle: GoogleFonts.ptSerif(),
-                              speed: const Duration(milliseconds: 100)),
-                          // FadeAnimatedText('Curious about me? '),
-                        ],
-                        totalRepeatCount: 5,
+                      child: Card(
+                        color: Colors.white,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: AnimatedTextKit(
+                            animatedTexts: [
+                              TyperAnimatedText(
+                                  'Curious about me? Here you have it:',
+                                  textStyle: GoogleFonts.ptSerif(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                  speed: const Duration(milliseconds: 100)),
+                              // FadeAnimatedText('Curious about me? '),
+                            ],
+                            totalRepeatCount: 5,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -182,3 +170,41 @@ class _carousel_and_blog_boxState extends State<carousel_and_blog_box> {
     );
   }
 }
+
+// final List<Map<String, String>> carouselImages = [
+//   {"id": "2", "imagepath": "assets/images/IMG_20230819_14502664-01.jpeg"},
+//   {"id": "3", "imagepath": "assets/images/IMG_20230819_09493568.jpg"},
+//   {"id": "4", "imagepath": "assets/images/20230920_145435-01.jpeg"},
+// ];
+
+// class imageCarousel extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       width: 200,
+//       child: CarouselSlider(
+//         options: CarouselOptions(
+//           autoPlay: true,
+//           autoPlayInterval: const Duration(seconds: 10),
+//           autoPlayAnimationDuration: const Duration(seconds: 1),
+//           aspectRatio: 19 / 9, // Aspect ratio
+//           viewportFraction: 0.5, // Fraction of the viewport width
+//           enlargeCenterPage: true, // Makes the center item larger
+//         ),
+//         items: carouselImages.map((image) {
+//           return Container(
+//             margin: const EdgeInsets.symmetric(horizontal: 5.0),
+//             decoration: BoxDecoration(
+//               borderRadius: BorderRadius.circular(20.0),
+//               color: Colors.grey[300], // Example background color
+//             ),
+//             child: Image.asset(
+//               image["imagepath"]!,
+//               fit: BoxFit.cover,
+//             ),
+//           );
+//         }).toList(),
+//       ),
+//     );
+//   }
+// }

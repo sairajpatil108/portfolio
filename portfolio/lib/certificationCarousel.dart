@@ -29,15 +29,16 @@ class certificationCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        width: MediaQuery.of(context).size.width * 1,
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.7,
+        height: MediaQuery.of(context).size.width * 0.3,
         child: CarouselSlider(
           options: CarouselOptions(
             autoPlay: true,
             autoPlayInterval: const Duration(seconds: 10),
             autoPlayAnimationDuration: const Duration(seconds: 1),
             aspectRatio: 19 / 9, // Aspect ratio
-            viewportFraction: 0.8, // Fraction of the viewport width
+            viewportFraction: 0.6, // Fraction of the viewport width
             enlargeCenterPage: true, // Makes the center item larger
           ),
           items: eventData.map((event) {
@@ -47,7 +48,9 @@ class certificationCarousel extends StatelessWidget {
               width: cardWidth,
               margin: const EdgeInsets.symmetric(horizontal: 5.0),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
+                borderRadius: BorderRadius.circular(15.0).copyWith(
+                    topRight: const Radius.circular(0),
+                    bottomLeft: const Radius.circular(0)),
                 color: Colors.grey[300], // Example background color
               ),
               child: Column(

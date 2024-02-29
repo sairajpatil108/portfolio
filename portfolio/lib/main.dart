@@ -3,7 +3,8 @@ import 'package:portfolio/theme.dart';
 import 'package:portfolio/ui_decider.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(ChangeNotifierProvider(
+void main() => runApp(
+  ChangeNotifierProvider(
       create: (context) => ThemeNotifier(), // Initialize ThemeNotifier
       child: MyApp(),
     ));

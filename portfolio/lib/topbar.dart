@@ -30,6 +30,7 @@ class _topbarState extends State<topbar> {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
+            Expanded(child: SizedBox()),
             ElevatedButton(
               child: Text('Contact'),
               onPressed: () {},
@@ -55,18 +56,13 @@ class _topbarState extends State<topbar> {
                 backgroundColor: Colors.transparent.withOpacity(0.3),
               ),
               onPressed: themeNotifier.toggleTheme,
-              child: Row(
-                children: [
-                  const Text("toggle theme"),
-                  Padding(
-                    padding: const EdgeInsets.all(0).copyWith(left: 7),
-                    child: Icon(
-                      themeNotifier.isDarkMode
-                          ? Icons.dark_mode_rounded
-                          : Icons.light_mode_rounded,
-                    ),
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(4),
+                child: Icon(
+                  themeNotifier.isDarkMode
+                      ? Icons.dark_mode_rounded
+                      : Icons.light_mode_rounded,
+                ),
               ),
             ),
             SizedBox(

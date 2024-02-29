@@ -21,13 +21,26 @@ class _intro_boxState extends State<intro_box> {
       height: 400,
       width: screenWidth * 0.95,
       decoration: const BoxDecoration(
+          border: Border(
+              bottom: BorderSide(
+                width: 1,
+              ),
+              top: BorderSide(
+                width: 1,
+              ),
+              left: BorderSide(
+                width: 1,
+              ),
+              right: BorderSide(
+                width: 1,
+              )),
           //  color: Color.fromARGB(255, 231, 231, 231),
           borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(30),
-        topRight: Radius.circular(0),
-        bottomLeft: Radius.circular(0),
-        bottomRight: Radius.circular(30),
-      )),
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(0),
+            bottomLeft: Radius.circular(0),
+            bottomRight: Radius.circular(30),
+          )),
       child: Row(
         // crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,

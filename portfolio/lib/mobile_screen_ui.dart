@@ -5,9 +5,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:portfolio/certificationCarousel.dart';
 import 'package:portfolio/introBoxMobile.dart';
 import 'package:portfolio/main.dart';
-import 'package:portfolio/projectCarousel.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -217,36 +217,6 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                     ],
                   ),
                 ),
-                Center(
-                  child: SizedBox(
-                    width: screenWidth * 0.9,
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 60, 10, 10),
-                      child: Stack(
-                        children: [
-                          InkWell(
-                              onTap: () {},
-                              child: CarouselSlider(
-                                  items: carouselImages
-                                      .map((item) => Image.asset(
-                                            item['imagepath'],
-                                            fit: BoxFit.cover,
-                                            width: double.infinity,
-                                          ))
-                                      .toList(),
-                                  options: CarouselOptions(
-                                    scrollPhysics:
-                                        const BouncingScrollPhysics(),
-                                    autoPlay: true,
-                                    aspectRatio: 1.3,
-                                    viewportFraction: 1,
-                                    onPageChanged: (index, reason) {},
-                                  )))
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
                 Container(
                     height: 400,
                     width: screenWidth * 0.9,
@@ -406,70 +376,44 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                     ],
                   ),
                 ),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+                  child: Divider(),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
-                Container(
-                    width: screenWidth * 0.9,
-                    height: 300,
-                    decoration: BoxDecoration(
-                        //   color: const Color.fromARGB(255, 231, 231, 231),
-                        borderRadius: BorderRadius.circular(30).copyWith(
-                            topRight: const Radius.circular(0),
-                            bottomLeft: const Radius.circular(0))),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Chip(
-                            label: Text(
-                              'Projects',
-                              style: GoogleFonts.ptSerif(
-                                  //     color: Colors.black,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            side: const BorderSide(
-                                // color: Colors.white
-                                ),
-                          ),
-                        ),
-                        projectCarousel(),
-                      ],
-                    )),
+                Card(
+                    child: Padding(
+                  padding:
+                      const EdgeInsets.all(8.0).copyWith(left: 20, right: 20),
+                  child: const Text("Projects"),
+                )),
                 const SizedBox(
                   height: 20,
                 ),
-                // Container(
-                //     width: screenWidth * 0.9,
-                //     height: 300,
-                //     decoration: BoxDecoration(
-                //         color: Color.fromARGB(255, 231, 231, 231),
-                //         borderRadius: BorderRadius.circular(30).copyWith(
-                //             topLeft: Radius.circular(0),
-                //             bottomRight: Radius.circular(0))),
-                //     child: Column(
-                //       children: [
-                //         Padding(
-                //           padding: const EdgeInsets.all(8.0),
-                //           child: Chip(
-                //             label: Text(
-                //               'Experiance',
-                //               style: GoogleFonts.ptSerif(
-                //                   color: Colors.black,
-                //                   fontSize: 15,
-                //                   fontWeight: FontWeight.w600),
-                //             ),
-                //             side: BorderSide(color: Colors.white),
-                //           ),
-                //         )
-                //       ],
-                //     )),
+                const projectCarouselMobile(),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+                  child: Divider(),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Card(
+                    child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("certifications"),
+                )),
+                const SizedBox(
+                  height: 20,
+                ),
+                const cretificationCarouselMobile(),
                 const SizedBox(
                   height: 20,
                 ),
                 const Padding(
-                  padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                   child: Divider(),
                 ),
                 SizedBox(
@@ -485,6 +429,9 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                         side: const BorderSide(
                             //color: Colors.white
                             ),
+                      ),
+                      const SizedBox(
+                        height: 10,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -512,7 +459,7 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
                         ],
                       ),
                       const Padding(
-                        padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                        padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                         child: Divider(),
                       ),
                       Row(
@@ -549,6 +496,122 @@ class _mobile_screen_uiState extends State<mobile_screen_ui> {
               ],
             ),
           )),
+    );
+  }
+}
+
+class projectCarouselMobile extends StatefulWidget {
+  const projectCarouselMobile({super.key});
+
+  @override
+  State<projectCarouselMobile> createState() => _projectCarouselMobileState();
+}
+
+class _projectCarouselMobileState extends State<projectCarouselMobile> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.width * 0.3,
+        child: CarouselSlider(
+          options: CarouselOptions(
+            autoPlay: true,
+            autoPlayInterval: const Duration(seconds: 10),
+            autoPlayAnimationDuration: const Duration(seconds: 1),
+            aspectRatio: 19 / 9, // Aspect ratio
+            viewportFraction: 0.8, // Fraction of the viewport width
+            enlargeCenterPage: true, // Makes the center item larger
+          ),
+          items: eventData.map((event) {
+            // Calculate the width of each card based on the viewport fraction
+            final cardWidth = MediaQuery.of(context).size.width;
+            return Container(
+              width: cardWidth,
+              margin: const EdgeInsets.symmetric(horizontal: 5.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0).copyWith(
+                    topLeft: const Radius.circular(0),
+                    bottomRight: const Radius.circular(0)),
+                color: Colors.grey[300], // Example background color
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    event.eventName,
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    event.dateTime,
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                ],
+              ),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
+}
+
+class cretificationCarouselMobile extends StatefulWidget {
+  const cretificationCarouselMobile({super.key});
+
+  @override
+  State<cretificationCarouselMobile> createState() =>
+      _cretificationCarouselMobileState();
+}
+
+class _cretificationCarouselMobileState
+    extends State<cretificationCarouselMobile> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.width * 0.3,
+        child: CarouselSlider(
+          options: CarouselOptions(
+            autoPlay: true,
+            autoPlayInterval: const Duration(seconds: 10),
+            autoPlayAnimationDuration: const Duration(seconds: 1),
+            aspectRatio: 19 / 9, // Aspect ratio
+            viewportFraction: 0.8, // Fraction of the viewport width
+            enlargeCenterPage: true, // Makes the center item larger
+          ),
+          items: eventData.map((event) {
+            // Calculate the width of each card based on the viewport fraction
+            final cardWidth = MediaQuery.of(context).size.width;
+            return Container(
+              width: cardWidth,
+              margin: const EdgeInsets.symmetric(horizontal: 5.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0).copyWith(
+                    topRight: const Radius.circular(0),
+                    bottomLeft: const Radius.circular(0)),
+                color: Colors.grey[300], // Example background color
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    event.eventName,
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    event.dateTime,
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                ],
+              ),
+            );
+          }).toList(),
+        ),
+      ),
     );
   }
 }

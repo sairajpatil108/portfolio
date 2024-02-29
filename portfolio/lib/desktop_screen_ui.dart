@@ -7,7 +7,7 @@ import 'package:portfolio/skills_box.dart';
 import 'package:portfolio/topbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'carousel_and_blog.dart';
+import 'blog.dart';
 import 'intro_box.dart';
 
 class desktop_screen_ui extends StatefulWidget {
@@ -49,18 +49,40 @@ class _desktop_screen_uiState extends State<desktop_screen_ui> {
         //
         //
 
-        carousel_and_blog_box(),
+        blog_box(),
+        //
+        //
+        //
+        Padding(
+          padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+          child: Divider(),
+        ),
         //
         //
         //
         skills_box(),
 
+        Padding(
+          padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+          child: Divider(),
+        ),
+
         SizedBox(
           height: 20,
         ),
-        projectBox(),
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: projectBox(),
+        ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+          child: Divider(),
+        ),
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: certification(),
+        ),
 
-        certification(),
         SizedBox(
           height: 20,
         ),

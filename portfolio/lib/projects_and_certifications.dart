@@ -17,8 +17,7 @@ class _projectBoxState extends State<projectBox> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      height: 500,
-      width: screenWidth * 0.4,
+      width: screenWidth * 1,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20)
             .copyWith(topRight: const Radius.circular(0)),
@@ -58,8 +57,7 @@ class _certificationState extends State<certification> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      height: 500,
-      width: screenWidth * 0.4,
+      width: screenWidth * 1,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20).copyWith(
           topLeft: const Radius.circular(0),
